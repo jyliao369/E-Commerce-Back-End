@@ -1,15 +1,19 @@
 const router = require('express').Router();
-const { Category, Product } = require('../../models');
+const { Category, Product, Tag } = require('../../models');
 
 // The `/api/categories` endpoint
 
 router.get('/', async (req, res) => {
   // find all categories
   try {
-    const categoryData = await Category.finalAll();
+    // NOTE TO SELF: WHEN ADDING AN INLCUDE, MAKE SURE
+    // IT IS INSERTED LIKE A PARAMETER
+    const categoryData = await Category.findAll({
+      include: [{ model: Product}]
+    });
     // be sure to include its associated Products
     res.status(200).json(categoryData);
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
@@ -30,7 +34,7 @@ router.get('/:id', async (req, res) => {
     }
 
     res.status(200).json(categoryData);
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
@@ -49,7 +53,7 @@ router.post('/', async (req, res) => {
 
 // update a category by its `id` value
 // .update() is used update any data that uses the Category model
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   Category.update(
     // These are fields of the model that can be updated or changed
     {
@@ -83,7 +87,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     res.status(200).json(deletedCategory);
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
