@@ -3,17 +3,17 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   // find all tags
   try {
-    const tagData = await Tag.finalAll({
-      include: [{ model: Product }]
+    const tagData = await Tag.findAll({
+      // be sure to include its associated Product data
+      include: [{ model: Product }],
     });
     res.status(200).json(tagData);
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
-  // be sure to include its associated Product data
 });
 
 router.get('/:id', async (req, res) => {
@@ -59,7 +59,8 @@ router.put('/:id', async (req, res) => {
         where: {
           id: req.params.id,
         },
-    });
+      }
+    );
 
     if(!tagData[0]) {
       res.status(404).json({ message: 'Tag not found!' })
@@ -78,7 +79,7 @@ router.delete('/:id', async (req, res) => {
     const deletedTag = await Tag.destroy({
       where: {
         id: req.params.id
-      }
+      },
     });
     
     if (!deletedTag) {

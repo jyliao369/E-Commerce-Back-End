@@ -9,9 +9,9 @@ router.get('/', async (req, res) => {
     // NOTE TO SELF: WHEN ADDING AN INLCUDE, MAKE SURE
     // IT IS INSERTED LIKE A PARAMETER
     const categoryData = await Category.findAll({
+      // be sure to include its associated Products
       include: [{ model: Product}]
     });
-    // be sure to include its associated Products
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
     const newCategory = await Category.create(req.body);
     res.status(200).json(newCategory);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
