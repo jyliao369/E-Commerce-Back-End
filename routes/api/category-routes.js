@@ -54,22 +54,24 @@ router.post('/', async (req, res) => {
 // update a category by its `id` value
 // .update() is used update any data that uses the Category model
 router.put('/:id', async (req, res) => {
-  Category.update(
-    // These are fields of the model that can be updated or changed
-    {
-      id: req.body.id,
-      category_name: req.body.category_name,
+  try {
+    const categoryData = await Category.update({
+      category_name: req.body.category_name
     },
-    // This gets the category based on the id given in the request params
     {
       where: {
         id: req.params.id,
       },
+    })
+
+    if(!categoryData[0]) {
+      res.status(404).json({ message: "No Category matches the ID" })
+      return;
     }
-  ).then((updatedCategory) => {
-    res.json(updatedCategory);
-  })
-  .catch((err) => res.json(err));
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // delete a category by its `id` value
@@ -82,11 +84,11 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!deletedCategory) {
-      res.status(404).json({ message: 'No category found with the ID' });
+      res.status(404).json({ message: "No category found with the ID" });
       return;
     }
 
-    res.status(200).json(deletedCategory);
+    res.status(200).json({ message: "Category removed" });
   } catch (err) {
     res.status(500).json(err);
   }
