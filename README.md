@@ -10,7 +10,7 @@
   * [License](#license)
   * [Tests](#tests)
   * [Questions](#questions)
-  * [Demonstration](#demonstrations)
+  * [Demonstration](#demonstration)
   
   ## Installation
   -- What technologies did the application require in order to run smoothly and effectively?--
@@ -37,10 +37,16 @@
 
   Contributors: Justin Liao
 
+
   ## Tests
   -- How can we test the application --
 
-  --
+  * To test this program, Imsomnia would need to be installed
+  * When running on VS Code, make sure the ncessary packages are installed through 'npm install' such as node, express and mysql
+  * Once the packages were installed, run the seeds through MySql to create the Database
+  * Once the database is created, create a link to the local host.
+  * Once the app if listening to the local host, use imsonia to perform the requests for each api.
+
 
   ## Questions
   -- Have any questions? --
@@ -53,16 +59,29 @@
   https://github.com/jyliao369
 
 
-
   ## Demonstration
+  -- Creating and Seeding Pre-Made Database --
+  ![Creating Database Through MySql](screenshots/)
+
+
+  -- Routes Test for Categories --
+  ![Testing Category Requests](screenshots/)
+
+
+  -- Routes Test for Products --
+  ![Testing Product Requests](screenshots/)
+
+
+  -- Routes Test for Tags --
+  ![Testing Tags Requests](screenshots/)
 
   
   ## Live Links
 
-  Github Repo:
+  Github Repo: https://github.com/jyliao369/E-Commerce-Back-End
 
-  Deployed Link:
+  Deployed Link: N/A
 
-  Heroku Live Link: 
+  Heroku Live Link: N/A
 
   
