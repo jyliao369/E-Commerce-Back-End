@@ -3,6 +3,7 @@
   ## Description:
   The idea of the project is to create a back-end to an psuedo E-commerce. In this project, users create a back end for any kind of e-commerce site. This project will allow users to add new data such as products, tags, and even categories. These can be used to help sort and also find products based on multiple factors like the product itself, products based on category and other minor details like price and stock. In doing so, the user will setup a server with the help of specific packages like Node and sequelize to build and modify a database. Insomonia is then used to test the different requests.
 
+
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
@@ -12,15 +13,18 @@
   * [Questions](#questions)
   * [Demonstration](#demonstration)
   
+
   ## Installation
   -- What technologies did the application require in order to run smoothly and effectively?--
 
   Technology used in the making of this application/project include Node, Express and MySql. Imsonia is used to test the different requests for the api
 
+
   ## Usage
   -- What is the application used for? --
 
   This application is mostly used for businesses but more specifically ones that use the internet to sell probucts.
+
 
   ## License
   -- Are there any license the application has? --
@@ -61,21 +65,21 @@
 
   ## Demonstration
   -- Creating and Seeding Pre-Made Database --
-  ![Creating Database Through MySql](screenshots/)
+  ![Creating Database Through MySql](screenshots/Database-Creation-Demo.gif)
+  
+  
+  -- Routes Test for Tags --
+  ![Testing Tags Requests](screenshots/Tag-Route-Demo.gif)
 
 
   -- Routes Test for Categories --
-  ![Testing Category Requests](screenshots/)
+  ![Testing Category Requests](screenshots/Category-Route-Demo.gif)
 
 
   -- Routes Test for Products --
-  ![Testing Product Requests](screenshots/)
+  ![Testing Product Requests](screenshots/Product-Route-Demo.gif)
 
 
-  -- Routes Test for Tags --
-  ![Testing Tags Requests](screenshots/)
-
-  
   ## Live Links
 
   Github Repo: https://github.com/jyliao369/E-Commerce-Back-End
